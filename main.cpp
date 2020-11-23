@@ -19,4 +19,5 @@ auto main() -> int {
   for (auto c : s1) cout << c << "-";
   cout << endl;
   cout << "----------" << endl;
+  //komentarz
 }
