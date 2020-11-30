@@ -1,6 +1,8 @@
 #ifndef TSTRING_H
 #define TSTRING_H
+
 #include <cstring>
+#include <iostream>
 
 class TString {
   public:
@@ -24,10 +26,17 @@ class TString {
     const char& front() const { return *ptr; }
     char & back() { return *(ptr+len-1); }
     const char& back() const { return *(ptr+len-1); }
+    char* c_str() { return ptr; }
+    const char* c_str() const { return ptr; }
+    void push_back( const char* c ) { insert( len, c ); }
+    void push_back( char c ) { insert( len, c ); }
 
     char* insert( size_t pos, const char* c );
     char* insert( size_t pos, char c );
-    char* erase( size_t pos=0, size_t len = 0 );
+    char* erase( size_t pos=0, size_t len=0 );
+
+    friend std::ostream& operator<<( std::ostream& strumien, const TString& s );
+    friend std::istream& operator>>( std::istream& strumien, TString& s );
 
   protected:
 

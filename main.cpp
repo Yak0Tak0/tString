@@ -13,13 +13,22 @@ auto main() -> int {
   TString s4 = fun("nowy obiekt nr 1");
   s1 = s2;
   s1 = std::move( s2 );
-  s1.insert(0, "NA POCZATEK");
-  s1.insert(s1.size(), "NA KONCU");
-  s1.erase(0, 11);
-  for (auto c : s1) cout << c << "-";
+  s1.insert(0,"NA POCZATEK");
+  s1.insert(s1.size(),'K');
+  s1.insert(s1.size()/2,"W SRODKU");
+  for (auto i=0ul; i<s1.size(); ++i) cout << s1[i];
   cout << endl;
-  cout << "----------" << endl;
-  //komentarze
-
-  //test
+  for (const auto& c : s1) {
+    //c = toupper(c);
+    cout << c << "-";
+  }
+  cout << endl;
+  for (auto i=0ul; i<s1.size(); ++i) cout << s1[i];
+  cout << endl;
+  cout << "Wpisz jakies dane: ";
+  cin >> s1;
+  s1.push_back("-koncowka-");
+  s1.push_back('X');
+  cout << "Wpisano: " << s1 << endl;
+  cout << "----------------------" << endl;
 }
